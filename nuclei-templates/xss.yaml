@@ -1,0 +1,23 @@
+id: xss
+
+info:
+  name: xss
+  severity: medium
+  author: raouf_maklouf
+  tags: XSS
+
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - 'T"rSpGeUMo>7N'
+        part: body
+      - type: word
+        words:
+          - 'html'
+        part: header
